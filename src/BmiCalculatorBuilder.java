@@ -112,7 +112,6 @@ public class BmiCalculatorBuilder extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //bmi=W/H*H
-//                todo: check if getValue returns int
               double bmi=Double.parseDouble(weightTxt.getText())/Math.pow((slider.getValue()/100.0),2);
               double idealWeight=(slider.getValue()-100+(Double.parseDouble(ageTxt.getText())/10.0))*0.9*slimness;
               String weightStatusOutput = null;
