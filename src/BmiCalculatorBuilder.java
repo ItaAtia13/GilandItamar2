@@ -40,7 +40,7 @@ public class BmiCalculatorBuilder extends JFrame {
 
     // help functions
     //round the bmi and ideal wight values
-    private static double round (double value) {
+    private static double round(double value) {
         int scale = (int) Math.pow(10, 2);
         return (double) Math.round(value * scale) / scale;
     }
@@ -52,7 +52,7 @@ public class BmiCalculatorBuilder extends JFrame {
         maleRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (maleRb.isSelected()){
+                if (maleRb.isSelected()) {
                     femaleRb.setSelected(false);
                 }
             }
@@ -62,7 +62,7 @@ public class BmiCalculatorBuilder extends JFrame {
         femaleRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (femaleRb.isSelected()){
+                if (femaleRb.isSelected()) {
                     maleRb.setSelected(false);
                 }
 
@@ -75,8 +75,8 @@ public class BmiCalculatorBuilder extends JFrame {
         smallRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (smallRb.isSelected()){
-                    slimness=0.9;
+                if (smallRb.isSelected()) {
+                    slimness = 0.9;
                     mediumRb.setSelected(false);
                     largeRb.setSelected(false);
                 }
@@ -86,8 +86,8 @@ public class BmiCalculatorBuilder extends JFrame {
         mediumRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (mediumRb.isSelected()){
-                    slimness=1;
+                if (mediumRb.isSelected()) {
+                    slimness = 1;
                     smallRb.setSelected(false);
                     largeRb.setSelected(false);
                 }
@@ -98,8 +98,8 @@ public class BmiCalculatorBuilder extends JFrame {
         largeRb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (largeRb.isSelected()){
-                    slimness=1.1;
+                if (largeRb.isSelected()) {
+                    slimness = 1.1;
                     smallRb.setSelected(false);
                     mediumRb.setSelected(false);
                 }
@@ -107,45 +107,43 @@ public class BmiCalculatorBuilder extends JFrame {
         });
 
 
-
         checkBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //bmi=W/H*H
-              double bmi=Double.parseDouble(weightTxt.getText())/Math.pow((slider.getValue()/100.0),2);
-              double idealWeight=(slider.getValue()-100+(Double.parseDouble(ageTxt.getText())/10.0))*0.9*slimness;
-              String weightStatusOutput = null;
-                  if(bmi<15.0) {
-                      weightStatusOutput = "Anorexic";
-                  }
-                  else if (bmi>15&& bmi<=18.5) {
-                      weightStatusOutput = "Underweight";
+                double bmi = Double.parseDouble(weightTxt.getText()) / Math.pow((slider.getValue() / 100.0), 2);
+                double idealWeight =
+                        (slider.getValue() - 100 + (Double.parseDouble(ageTxt.getText()) / 10.0)) * 0.9 * slimness;
+                String weightStatusOutput = null;
+                if (bmi < 15.0) {
+                    weightStatusOutput = "Anorexic";
+                } else if (bmi > 15 && bmi <= 18.5) {
+                    weightStatusOutput = "Underweight";
 
-                  } else if (idealWeight>18.5&&bmi<=24.9) {
-                      weightStatusOutput = "Normal";
-                  }
-             else if (bmi>24.9&&bmi<=29.9) {
-                weightStatusOutput = "Overweight";
-            }
-                  else if (bmi>29.9&&bmi<=35) {
-                      weightStatusOutput = "Obese";
-                  }
-                  else if (bmi>35) {
-                      weightStatusOutput = "Extreme Obese";
-                  }
+                } else if (idealWeight > 18.5 && bmi <= 24.9) {
+                    weightStatusOutput = "Normal";
+                } else if (bmi > 24.9 && bmi <= 29.9) {
+                    weightStatusOutput = "Overweight";
+                } else if (bmi > 29.9 && bmi <= 35) {
+                    weightStatusOutput = "Obese";
+                } else if (bmi > 35) {
+                    weightStatusOutput = "Extreme Obese";
+                }
 
-                JOptionPane.showMessageDialog(checkBtn,"Your BMI is: "+round(bmi)+"\nThe ideal weight is: "+round(idealWeight)+"\nYour Weight Status: "+weightStatusOutput);
+                JOptionPane.showMessageDialog(checkBtn,
+                        "Your BMI is: " + round(bmi) + "\nThe ideal weight is: " + round(idealWeight) +
+                                "\nYour Weight Status: " + weightStatusOutput);
 
 
             }
         });
 
-            slider.addChangeListener(new ChangeListener() {
-                @Override
-                public void stateChanged(ChangeEvent e) {
-                    sliderInput.setText("Entered Height: " + String.valueOf(slider.getValue() + "cm"));
-                }
-            });
+        slider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                sliderInput.setText("Entered Height: " + String.valueOf(slider.getValue() + "cm"));
+            }
+        });
 
 
         //Clear Form
@@ -171,7 +169,7 @@ public class BmiCalculatorBuilder extends JFrame {
     }
 
     public static void main(String[] args) {
-        BmiCalculatorBuilder builder=new BmiCalculatorBuilder();
+        BmiCalculatorBuilder builder = new BmiCalculatorBuilder();
         builder.setContentPane(builder.mainPanel);
         builder.pack();
         builder.setTitle("BMI Calculator");
