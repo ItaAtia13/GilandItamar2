@@ -171,12 +171,13 @@ public class BmiCalculatorBuilder extends JFrame {
     }
 
     public static void main(String[] args) {
-        BmiCalculatorBuilder b=new BmiCalculatorBuilder();
-        b.setContentPane(b.mainPanel);
-        b.setTitle("BMI Calculator");
-        b.setVisible(true);
-        b.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        todo: add try catch for wrong input of name and age
+        BmiCalculatorBuilder builder=new BmiCalculatorBuilder();
+        builder.setContentPane(builder.mainPanel);
+        builder.pack();
+        builder.setTitle("BMI Calculator");
+        builder.setVisible(true);
+        builder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
 }
